@@ -1,0 +1,8 @@
+FROM openjdk:8-jdk-alpine
+WORKDIR /app
+COPY artifacts/SampleModule* ./app.jar
+
+RUN addgroup -g 1000 -S moduleuser && \
+    adduser -u 1000 -S moduleuser -G moduleuser
+USER moduleuser
+ENTRYPOINT ["java","-jar","./app.jar"]

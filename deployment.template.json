@@ -10,10 +10,10 @@
             "minDockerVersion": "v1.25",
             "loggingOptions": "",
             "registryCredentials": {
-              "docker": {
-                "username": "$CONTAINER_REGISTRY_USERNAME_docker",
-                "password": "$CONTAINER_REGISTRY_PASSWORD_docker",
-                "address": "docker.io"
+              "mmtestregistery": {
+                "username": "$CONTAINER_REGISTRY_USERNAME_mmtestregistery",
+                "password": "$CONTAINER_REGISTRY_PASSWORD_mmtestregistery",
+                "address": "mmtestregistery.azurecr.io"
               }
             }
           }
