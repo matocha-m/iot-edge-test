@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine
 WORKDIR /app
-COPY artifacts/SampleModule* ./app.jar
+COPY artifacts/app.jar ./app.jar
 
 RUN addgroup -g 1000 -S moduleuser && \
     adduser -u 1000 -S moduleuser -G moduleuser
