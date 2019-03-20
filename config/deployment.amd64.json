@@ -52,7 +52,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "mmtestregistery.azurecr.io/samplemodule:v0.9",
+              "image": "mmtestregistery.azurecr.io/samplemodule:v1.0",
               "createOptions": "{}"
             }
           }
