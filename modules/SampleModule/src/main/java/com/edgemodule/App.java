@@ -46,7 +46,7 @@ public class App {
             interval = Integer.parseInt(payload);
             System.out.println(payload);
             setTelemetryInterval(interval);
-            deviceMethodData = new DeviceMethodData(status, "Executed direct method " + methodName);
+            deviceMethodData = new DeviceMethodData(status, "Executed direct method: " + methodName);
           } catch (NumberFormatException e) {
             int status = INVALID_PARAMETER;
             deviceMethodData = new DeviceMethodData(status, "Invalid parameter " + payload);
