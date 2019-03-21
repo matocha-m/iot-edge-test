@@ -4,7 +4,7 @@
   "image": {
     "repository": "mmtestregistery.azurecr.io/samplemodule",
     "tag": {
-      "version": "v1.0",
+      "version": "v1.1",
       "platforms": {
         "amd64": "./Dockerfile.amd64",
         "amd64.debug": "./Dockerfile.amd64.debug",
