@@ -4,13 +4,13 @@ resources:
 - name: source-code
   type: git
   source:
-    uri: git@github.com:grapeup/porsche-echo-module.git
+    uri: git@github.com:matocha-m/iot-edge-test.git
     branch: master
     private_key: ((git-privatekey))
 - name: scripts-source
   type: git
   source:
-    uri: git@github.com:grapeup/porsche-echo-module.git
+    uri: git@github.com:matocha-m/iot-edge-test.git
     branch: master
     private_key: ((git-privatekey))
 - name: registery
