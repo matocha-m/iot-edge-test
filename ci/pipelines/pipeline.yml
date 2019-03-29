@@ -1,0 +1,63 @@
+---
+
+resources:
+- name: source-code
+  type: git
+  source:
+    uri: git@github.com:grapeup/porsche-echo-module.git
+    branch: master
+    private_key: ((git-privatekey))
+- name: scripts-source
+  type: git
+  source:
+    uri: git@github.com:grapeup/porsche-echo-module.git
+    branch: master
+    private_key: ((git-privatekey))
+- name: registery
+  type: docker-image
+  source:
+    username: ((azure-cr-username))     
+    password: ((azure-cr-password))
+    repository: cconregistry.azurecr.io/((docker-repository-name))
+- name: trigger
+  type: time
+
+
+jobs:
+- name: build
+  public: true
+  plan:
+  - get: source-code
+    trigger: true
+  - get: scripts-source
+  - task: maven-build
+    file: scripts-source/ci/tasks/maven-build.yml
+    params:
+      APPNAME: test-iot
+      MODULE_NAME: ((module-name))
+  - put: registery
+    params:
+      build: artifacts/
+      dockerfile: source-code/modules/((module-name))/Dockerfile.copy
+      tag: version/version.txt
+  - put: trigger      
+- name: deploy
+  public: true
+  plan:
+  - get: trigger
+    trigger: true
+    passed: [build]
+  - get: scripts-source
+  - get: source-code
+  - task: deploy
+    file: scripts-source/ci/tasks/deploy_solution.yml
+    params:
+      IOT_HUB_NAME: ((iot-hub-name))
+      DEVICE_ID: ((device-id))
+      MODULE_NAME: ((module-name))
+      USERNAME: ((azure-iothub-username))
+      PASSWORD: ((azure-iothub-password))
+      AZ_AD: ((azure-ad-id))
+
+
+  

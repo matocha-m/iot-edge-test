@@ -1,8 +1,6 @@
-FROM openjdk:8-jdk-alpine
-
+FROM maven:3.5-jdk-8-alpine
 WORKDIR /app
 COPY app.jar ./app.jar
-
 RUN addgroup -g 1000 -S moduleuser && \
     adduser -u 1000 -S moduleuser -G moduleuser
 USER moduleuser

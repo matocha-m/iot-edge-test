@@ -7,7 +7,7 @@ RUN mvn install -Dmaven.test.skip=true
 
 FROM arm32v7/openjdk:8-jdk-slim
 WORKDIR /app
-COPY --from=build-env /app/target/SampleModule-1.0.0-SNAPSHOT-with-deps.jar ./app.jar
+COPY --from=build-env /app/target/EchoModule-1922.1.0-with-deps.jar ./app.jar
 
 RUN groupadd --gid 1000 moduleuser && \
     useradd --uid 1000 --gid moduleuser --shell /bin/bash --create-home moduleuser

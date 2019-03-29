@@ -1,0 +1,4 @@
+module-name: EchoModule
+docker-repository-name: echo-module-mm
+device-id: mm-test-device
+iot-hub-name: CConBuild

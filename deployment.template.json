@@ -10,10 +10,10 @@
             "minDockerVersion": "v1.25",
             "loggingOptions": "",
             "registryCredentials": {
-              "cconregistry": {
-                "username": "$CONTAINER_REGISTRY_USERNAME_cconregistry",
-                "password": "$CONTAINER_REGISTRY_PASSWORD_cconregistry",
-                "address": "cconregistry.azurecr.io"
+              "docker": {
+                "username": "$CONTAINER_REGISTRY_USERNAME_docker",
+                "password": "$CONTAINER_REGISTRY_PASSWORD_docker",
+                "address": "e3iottest.azurecr.io"
               }
             }
           }
@@ -57,23 +57,13 @@
           }
         },
         "modules": {
-          "tempSensor": {
+          "EchoModule": {
             "version": "1.0",
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
-              "createOptions": {}
-            }
-          },
-          "SampleModule": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "${MODULES.SampleModule}",
+              "image": "${MODULES.EchoModule}",
               "createOptions": {}
             }
           }
@@ -84,8 +74,7 @@
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "SampleModuleToIoTHub": "FROM /messages/modules/SampleModule/outputs/* INTO $upstream",
-          "sensorToSampleModule": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/SampleModule/inputs/input1\")"
+          "EchoModuleToIoTHub": "FROM /messages/modules/EchoModule/outputs/* INTO $upstream"
         },
         "storeAndForwardConfiguration": {
           "timeToLiveSecs": 7200
