@@ -6,7 +6,7 @@
 
   <groupId>com.vwgroup.odp</groupId>
   <artifactId>EchoModule</artifactId>
-  <version>1922.1.4</version>
+  <version>1922.1.5</version>
   <packaging>jar</packaging>
 
   <name>Azure IoT Edge Echo Module</name>
