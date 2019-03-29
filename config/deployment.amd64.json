@@ -42,7 +42,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "cconregistry.azurecr.io/echo-module:#VERSION",
+              "image": "cconregistry.azurecr.io/echo-module-mm:#VERSION",
               "createOptions": "{}"
             }
           }
