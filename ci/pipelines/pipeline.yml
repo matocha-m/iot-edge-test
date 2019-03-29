@@ -57,6 +57,8 @@ jobs:
       MODULE_NAME: ((module-name))
       USERNAME: ((azure-iothub-username))
       PASSWORD: ((azure-iothub-password))
+      ACR_USERNAME: ((azure-cr-username))     
+      ACR_PASSWORD: ((azure-cr-password))
       AZ_AD: ((azure-ad-id))
 
 
