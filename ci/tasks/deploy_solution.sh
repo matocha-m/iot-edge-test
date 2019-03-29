@@ -11,4 +11,4 @@ sed -i 's/#AZURE_CR_PASSWORD/$PASSWORD/g' $DEPLOYMENT_JSON
 sed -i 's/#VERSION/$VERSION/g' $DEPLOYMENT_JSON
 
 
-az iot edge deployment create -d test_$VERSION -n $IOT_HUB_NAME --content $ --target-condition "deviceId='"$DEVICE_ID"'"
+az iot edge deployment create -d test_$VERSION -n $IOT_HUB_NAME --content $DEPLOYMENT_JSON --target-condition "deviceId='"$DEVICE_ID"'"
